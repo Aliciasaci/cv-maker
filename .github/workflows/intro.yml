@@ -1,14 +1,23 @@
-name: hello world
+name: install and build
 
 on:
   push: 
 
 
 jobs:
-  hello-world:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - uses : actions/checkout@v4   #sert à recup le code de la branche qui a déclenché la pipeline
 
-      - run : echo "hello world"
+      - name : show node version
+        run : echo node -v          #avoir la version de node déjà installé sur ubuntu
+
+      - name : install dependencies
+        run : npm install 
+
+      - name : build the app 
+        run : npm run build 
+      
+      
